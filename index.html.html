@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>焼き肉 中園 — 地元の炭火焼き</title>
+  <meta name="description" content="炭火の香りとおばちゃんの笑顔。町の庶民派焼き肉「中園」。牛タン・ハラミ・カルビ・ビビンバ・冷麺など定番を手頃に。" />
+  <style>
+    :root{
+      --bg:#f7efe6;     
+      --card:#fffaf6;
+      --text:#2b2b2b;
+      --accent:#d84720;
+      --muted:#8c7b6a;
+      --shadow: 0 8px 24px rgba(0,0,0,0.06);
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,var(--bg),#efe6dc);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.65;
+    }
+    .wrap{max-width:1100px;margin:0 auto;padding:24px;}
+    header.brand{display:flex;align-items:center;gap:16px;padding:8px 0 24px;}
+    .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,#30120b,#6a2a19);box-shadow:0 6px 18px rgba(106,42,25,0.12);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+    .brand-info h1{margin:0;font-size:1.4rem;letter-spacing:.06em;}
+    .brand-info p{margin:4px 0 0;color:var(--muted);font-size:0.95rem;}
+    nav.topnav{display:flex;align-items:center;gap:12px;margin:12px 0 24px;flex-wrap:wrap;}
+    nav.topnav a{background:var(--card);padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--text);box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.03);font-weight:600;}
+    nav.topnav a.cta{background:var(--accent);color:#fff;border-color:rgba(0,0,0,0.06)}
+    @media(max-width:720px){.wrap{padding:16px}.logo{width:56px;height:56px}.brand-info h1{font-size:1.1rem}}
+    .hero {position: relative;height: 60vh;background-image: url("yakiniku main image.jpg");background-size: cover;background-position: center;color: #fff;display: flex;justify-content: center;align-items: center;text-align: center;padding: 0 1rem;}
+    .hero::before {content: "";position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7));z-index: 0;}
+    .hero-content {position: relative;z-index: 1;}
+    .hero-content h1 {font-size: 3rem;margin-bottom: 1rem;text-shadow: 2px 2px 6px rgba(0,0,0,0.6);}
+    .hero-content p {font-size: 1.3rem;text-shadow: 2px 2px 6px rgba(0,0,0,0.6);}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
+    @media(max-width:980px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.03)}
+    .about p{margin:8px 0;color:var(--text)}
+    .menu-list{display:flex;flex-direction:column;gap:12px}
+    .menu-item{display:flex;gap:12px;align-items:flex-start}
+    .menu-item .meta{min-width:110px;font-weight:700;color:var(--accent)}
+    .menu-item .desc{color:var(--muted);font-size:0.95rem}
+    .price{margin-left:auto;font-weight:700;color:var(--text)}
+    .specials{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+    .specials .spec{padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff7f2,#fffdfb);border:1px solid rgba(216,71,32,0.06)}
+    .photo{height:120px;border-radius:8px;background:linear-gradient(90deg,#dbc2b2,#f6e7df);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
+    .reserve{display:flex;flex-direction:column;gap:10px;align-items:stretch}
+    .reserve .tel{font-size:1.2rem;font-weight:800;color:var(--accent)}
+    .btn-call{display:inline-block;background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .small{font-size:0.9rem;color:var(--muted)}
+    .meta-list{display:flex;flex-direction:column;gap:6px;font-size:0.95rem;color:var(--muted)}
+    .faq dt{font-weight:700;margin-top:10px}
+    .faq dd{margin:6px 0 0;color:var(--muted)}
+    footer.sitefoot{margin-top:28px;padding:18px;text-align:center;color:var(--muted);font-size:0.9rem}
+    .notice{padding:10px;border-radius:8px;background:#fff8ec;border:1px solid rgba(0,0,0,0.03);color:var(--muted)}
+    a.inline{color:var(--accent);text-decoration:none}
+    html{scroll-behavior:smooth}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="brand" aria-label="ブランド">
+      <div class="logo">中</div>
+      <div class="brand-info">
+        <h1>焼き肉 中園</h1>
+        <p>炭火の香りとおばちゃんの笑顔、町の庶民派焼肉。</p>
+      </div>
+    </header>
+
+    <nav class="topnav" aria-label="メインナビ">
+      <a href="#about">お店について</a>
+      <a href="#menu">おすすめ</a>
+      <a href="#photos">店内写真</a>
+      <a href="#access">アクセス</a>
+      <a href="#reserve" class="cta">予約する</a>
+    </nav>
+
+    <section class="hero" aria-hidden="false">
+      <div class="content">
+        <h2>炭火の香りに誘われて、今日ものんびり。<br>家族で、仲間で、ふらっと寄れる焼き肉屋です。</h2>
+        <p>厚切り牛タン、じゅわっとハラミ、定番カルビ。シメは熱々の石焼ビビンバか冷麺でどうぞ。</p>
+      </div>
+    </section>
+
+    <div class="grid">
+      <main>
+        <section id="about" class="card about" aria-labelledby="about-title">
+          <h2 id="about-title">お店について</h2>
+          <p>「焼き肉 中園」は、開店してから長く地元に根づいてきた庶民派の焼き肉店です。経営はおばちゃん一人でも切り盛りしており、手作りのたれや家庭的な味付けを大切にしています。席はテーブル中心で、炭火で焼く七輪の香りが店内に広がります。お子様連れや常連さんの宴会まで、気軽にご利用ください。</p>
+          <p class="notice">※ 当店は炭火を使用しております。小さなお子様連れの際は火元にご注意ください。</p>
+        </section>
+
+        <section id="menu" class="card" aria-labelledby="menu-title">
+          <h2 id="menu-title">おすすめメニュー</h2>
+
+          <div class="menu-list" role="list">
+            <div class="menu-item" role="listitem">
+              <div class="meta">牛タン（厚切り）</div>
+              <div class="desc">塩でさっと。歯ごたえと旨みを楽しめる自慢の一皿。</div>
+              <div class="price">¥1,480</div>
+            </div>
+
+            <div class="menu-item" role="listitem">
+              <div class="meta">ハラミ</div>
+              <div class="desc">脂のバランスが良く、ジューシーで噛むほどに旨味が広がります。</div>
+              <div class="price">¥1,280</div>
+            </div>
+
+            <div class="menu-item" role="listitem">
+              <div class="meta">カルビ</div>
+              <div class="desc">定番の旨さ。タレで香ばしく焼いてどうぞ。</div>
+              <div class="price">¥1,180</div>
+            </div>
+
+            <div class="menu-item" role="listitem">
+              <div class="meta">石焼ビビンバ</div>
+              <div class="desc">熱々の器で提供、香ばしいおこげがうまい。〆にぴったり。</div>
+              <div class="price">¥850</div>
+            </div>
+
+            <div class="menu-item" role="listitem">
+              <div class="meta">冷麺</div>
+              <div class="desc">さっぱりしたスープで後味すっきり。暑い日にも人気です。</div>
+              <div class="price">¥780</div>
+            </div>
+          </div>
+
+          <div class="specials" aria-hidden="false">
+            <div class="spec">
+              <strong>家族セット（3〜4名）</strong>：カルビ・ハラミ・牛タンにナムル・ごはんが付いたお得セット。¥3,800
+            </div>
+            <div class="spec">
+              <strong>常連のおすすめ</strong>：おばちゃんおまかせ盛り。今日は何が出るかはお楽しみ。¥1,600〜
+            </div>
+          </div>
+        </section>
+
+        <!-- ここからメニュー写真 横スクロール -->
+        <section id="photos" class="card" aria-label="メニュー写真">
+          <h2>メニュー写真</h2>
+          <div style="
+            display:flex;
+            overflow-x:auto;
+            gap:12px;
+            padding:12px 0;
+            scroll-snap-type:x mandatory;
+            -webkit-overflow-scrolling:touch;
+          ">
+            <img src="./gyutan.webp" alt="牛タン" style="flex:0 0 auto;width:150px;height:150px;object-fit:cover;border-radius:8px;scroll-snap-align:start;">
+            <img src="./karubi.webp" alt="カルビ" style="flex:0 0 auto;width:150px;height:150px;object-fit:cover;border-radius:8px;scroll-snap-align:start;">
+            <img src="./bibinnba.webp" alt="石焼きビビンバ" style="flex:0 0 auto;width:150px;height:150px;object-fit:cover;border-radius:8px;scroll-snap-align:start;">
+            <img src="./harami.webp" alt="ハラミ" style="flex:0 0 auto;width:150px;height:150px;object-fit:cover;border-radius:8px;scroll-snap-align:start;">
+            <img src="./reimenn.webp" alt="冷麺" style="flex:0 0 auto;width:150px;height:150px;object-fit:cover;border-radius:8px;scroll-snap-align:start;">
+          </div>
+        </section>
+
+        <section id="faq" class="card" aria-labelledby="faq-title">
+          <h2 id="faq-title">よくある質問</h2>
+          <dl class="faq">
+            <dt>予約は必要ですか？</dt>
+            <dd>ご来店の曜日や時間帯によります。土日は混み合いますので予約をおすすめします。</dd>
+
+            <dt>支払い方法は？</dt>
+            <dd>現金のほか、クレジットカード（VISA / Master）をご利用いただけます。</dd>
+
+            <dt>喫煙はできますか？</dt>
+            <dd>店内は全席喫煙可となっております。ご希望があれば分煙の配慮もいたしますのでご相談ください。</dd>
+          </dl>
+        </section>
+      </main>
+
+      <aside>
+        <div class="card reserve" id="reserve">
+          <h3>ご予約・お問合せ</h3>
+          <div class="tel">☎︎ 03-1234-5678</div>
+          <a class="btn-call" href="tel:0312345678">電話で予約</a>
+          <div class="small">営業時間：11:30〜14:30 / 17:00〜22:00（L.O.21:30）</div>
+          <div class="small">定休日：水曜日</div>
+          <div style="height:8px"></div>
+          <div class="notice small">「お子様連れ」「アレルギー」など事前にお伝えいただければ対応いたします。</div>
+        </div>
+    
+ <div class="card" style="margin-top:14px">
+  <h3>地図で場所を確認</h3>
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.123456789!2d139.700000!3d35.689500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c123456789%3A0xabcdef123456789!2z44CSMTAwLTAwMDEg5p2x5Lqs6YO95paw5aSn6KeS77yR5LiB55uu77yR77yR!5e0!3m2!1sja!2sjp!4v1234567890123" 
+    width="100%" 
+    height="250" 
+    style="border:0; border-radius:12px;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+   
+ <div class="card" style="margin-top:14px">
+          <h3>アクセス</h3>
+          <div class="meta-list">
+            <div>東京都○○区中園町 2-3-4</div>
+            <div>最寄り駅：中園駅 徒歩7分</div>
+            <div>駐車場：近隣コインパーキングをご利用ください</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h3>おすすめの注文順</h3>
+          <ol style="margin:8px 0 0 18px;color:var(--muted)">
+            <li>まずはナムルと生ビールで乾杯</li>
+            <li>牛タンを塩でさっと</li>
+            <li>ハラミ・カルビをタレでじっくり</li>
+            <li>シメに石焼ビビンバか冷麺</li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="sitefoot">
+      <p>© 焼き肉 中園 — 地元の炭火焼き。住所・電話は架空の情報です。</p>
+    </footer>
+  </div>
+
+  <script>
+    (function(){
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.style.transition="opacity 900ms ease, transform 900ms ease";
+            e.target.style.opacity=1;
+            e.target.style.transform="translateY(0)";
+            io.unobserve(e.target);
+          }
+        });
+      },{threshold:0.12});
+
+      document.querySelectorAll('.card, .hero .content, .photo, .menu-item').forEach(el=>{
+        el.style.opacity=0;
+        el.style.transform="translateY(18px)";
+        io.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html>
