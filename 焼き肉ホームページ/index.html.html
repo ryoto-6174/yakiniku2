@@ -16,16 +16,8 @@
       --radius:12px;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: "Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:linear-gradient(180deg,var(--bg),#efe6dc);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.65;
-    }
+    html,body{height:100%;margin:0;font-family: "Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;line-height:1.65;color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+    body{background:linear-gradient(180deg,var(--bg),#efe6dc);}
     .wrap{max-width:1100px;margin:0 auto;padding:24px;}
     header.brand{display:flex;align-items:center;gap:16px;padding:8px 0 24px;}
     .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,#30120b,#6a2a19);box-shadow:0 6px 18px rgba(106,42,25,0.12);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:20px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
@@ -35,11 +27,15 @@
     nav.topnav a{background:var(--card);padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--text);box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.03);font-weight:600;}
     nav.topnav a.cta{background:var(--accent);color:#fff;border-color:rgba(0,0,0,0.06)}
     @media(max-width:720px){.wrap{padding:16px}.logo{width:56px;height:56px}.brand-info h1{font-size:1.1rem}}
-    .hero {position: relative;height: 60vh;background-image: url("yakiniku main image.jpg");background-size: cover;background-position: center;color: #fff;display: flex;justify-content: center;align-items: center;text-align: center;padding: 0 1rem;}
-    .hero::before {content: "";position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7));z-index: 0;}
-    .hero-content {position: relative;z-index: 1;}
-    .hero-content h1 {font-size: 3rem;margin-bottom: 1rem;text-shadow: 2px 2px 6px rgba(0,0,0,0.6);}
-    .hero-content p {font-size: 1.3rem;text-shadow: 2px 2px 6px rgba(0,0,0,0.6);}
+
+    /* ヒーロー */
+    .hero {position: relative;background-image: url('./yakiniku main image.jpg'); background-size: cover;background-position: center;color: white;text-align: center;display:flex;flex-direction:column;justify-content:center;padding:60px 20px;min-height:300px;}
+    .hero-content {background: rgba(0, 0, 0, 0.35);padding: 10px 14px;border-radius: 8px;display: inline-block;margin: 0 auto;max-width: 90%;}
+    .hero-content h1 {font-size: 2.2rem;margin-bottom: 0.4em;}
+    .hero-content p {font-size: 1.05rem;line-height: 1.6;}
+    @media (max-width:720px){.hero {padding:24px 12px;min-height:180px;} .hero-content h1 {font-size:1.2rem;margin-bottom:0.3em;} .hero-content p {font-size:0.8rem;line-height:1.4;max-width:92%;}}
+
+    /* グリッド＆カード */
     .grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
     @media(max-width:980px){.grid{grid-template-columns:1fr}}
     .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.03)}
@@ -51,7 +47,6 @@
     .price{margin-left:auto;font-weight:700;color:var(--text)}
     .specials{display:flex;flex-direction:column;gap:10px;margin-top:8px}
     .specials .spec{padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff7f2,#fffdfb);border:1px solid rgba(216,71,32,0.06)}
-    .photo{height:120px;border-radius:8px;background:linear-gradient(90deg,#dbc2b2,#f6e7df);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
     .reserve{display:flex;flex-direction:column;gap:10px;align-items:stretch}
     .reserve .tel{font-size:1.2rem;font-weight:800;color:var(--accent)}
     .btn-call{display:inline-block;background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
@@ -63,6 +58,12 @@
     .notice{padding:10px;border-radius:8px;background:#fff8ec;border:1px solid rgba(0,0,0,0.03);color:var(--muted)}
     a.inline{color:var(--accent);text-decoration:none}
     html{scroll-behavior:smooth}
+    body, html {overflow-x:hidden;width:100%;max-width:100%;}
+    section, div, img {max-width:100%;box-sizing:border-box;}
+    /* メニュー写真横スクロール */
+    .menu-gallery {display:flex;overflow-x:auto;gap:12px;padding:12px 0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
+    .menu-gallery img {flex:0 0 auto;width:150px;height:150px;object-fit:cover;border-radius:8px;scroll-snap-align:start;}
+    @media (max-width:720px){.wrap{padding:8px}.grid{display:block}.hero{height:40vh;background-position:center center;background-size:cover}.hero-content h1{font-size:2rem}.hero-content p{font-size:1rem}.card,.menu-gallery,img,iframe{width:100% !important;max-width:100% !important}.menu-gallery{overflow-x:auto;padding:8px 0;gap:8px}.menu-gallery img{width:130px;height:130px;}}
   </style>
 </head>
 <body>
@@ -83,97 +84,41 @@
       <a href="#reserve" class="cta">予約する</a>
     </nav>
 
-    <section class="hero" aria-hidden="false">
-      <div class="content">
-        <h2>炭火の香りに誘われて、今日ものんびり。<br>家族で、仲間で、ふらっと寄れる焼き肉屋です。</h2>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>炭火の香りに誘われて、今日ものんびり。<br>家族で、仲間で、ふらっと寄れる焼き肉屋です。</h1>
         <p>厚切り牛タン、じゅわっとハラミ、定番カルビ。シメは熱々の石焼ビビンバか冷麺でどうぞ。</p>
       </div>
     </section>
 
     <div class="grid">
       <main>
-        <section id="about" class="card about" aria-labelledby="about-title">
-          <h2 id="about-title">お店について</h2>
-          <p>「焼き肉 中園」は、開店してから長く地元に根づいてきた庶民派の焼き肉店です。経営はおばちゃん一人でも切り盛りしており、手作りのたれや家庭的な味付けを大切にしています。席はテーブル中心で、炭火で焼く七輪の香りが店内に広がります。お子様連れや常連さんの宴会まで、気軽にご利用ください。</p>
+        <section id="about" class="card about">
+          <h2>お店について</h2>
+          <p>「焼き肉 中園」は、開店してから長く地元に根づいてきた庶民派の焼き肉店です。席はテーブル中心で、炭火の香りが広がります。</p>
           <p class="notice">※ 当店は炭火を使用しております。小さなお子様連れの際は火元にご注意ください。</p>
         </section>
 
-        <section id="menu" class="card" aria-labelledby="menu-title">
-          <h2 id="menu-title">おすすめメニュー</h2>
-
-          <div class="menu-list" role="list">
-            <div class="menu-item" role="listitem">
-              <div class="meta">牛タン（厚切り）</div>
-              <div class="desc">塩でさっと。歯ごたえと旨みを楽しめる自慢の一皿。</div>
-              <div class="price">¥1,480</div>
-            </div>
-
-            <div class="menu-item" role="listitem">
-              <div class="meta">ハラミ</div>
-              <div class="desc">脂のバランスが良く、ジューシーで噛むほどに旨味が広がります。</div>
-              <div class="price">¥1,280</div>
-            </div>
-
-            <div class="menu-item" role="listitem">
-              <div class="meta">カルビ</div>
-              <div class="desc">定番の旨さ。タレで香ばしく焼いてどうぞ。</div>
-              <div class="price">¥1,180</div>
-            </div>
-
-            <div class="menu-item" role="listitem">
-              <div class="meta">石焼ビビンバ</div>
-              <div class="desc">熱々の器で提供、香ばしいおこげがうまい。〆にぴったり。</div>
-              <div class="price">¥850</div>
-            </div>
-
-            <div class="menu-item" role="listitem">
-              <div class="meta">冷麺</div>
-              <div class="desc">さっぱりしたスープで後味すっきり。暑い日にも人気です。</div>
-              <div class="price">¥780</div>
-            </div>
-          </div>
-
-          <div class="specials" aria-hidden="false">
-            <div class="spec">
-              <strong>家族セット（3〜4名）</strong>：カルビ・ハラミ・牛タンにナムル・ごはんが付いたお得セット。¥3,800
-            </div>
-            <div class="spec">
-              <strong>常連のおすすめ</strong>：おばちゃんおまかせ盛り。今日は何が出るかはお楽しみ。¥1,600〜
-            </div>
+        <section id="menu" class="card">
+          <h2>おすすめメニュー</h2>
+          <div class="menu-list">
+            <div class="menu-item"><div class="meta">牛タン（厚切り）</div><div class="desc">塩でさっと。歯ごたえと旨みを楽しめる自慢の一皿。</div><div class="price">¥1,480</div></div>
+            <div class="menu-item"><div class="meta">ハラミ</div><div class="desc">脂のバランスが良く、ジューシーで噛むほどに旨味が広がります。</div><div class="price">¥1,280</div></div>
+            <div class="menu-item"><div class="meta">カルビ</div><div class="desc">定番の旨さ。タレで香ばしく焼いてどうぞ。</div><div class="price">¥1,180</div></div>
+            <div class="menu-item"><div class="meta">石焼ビビンバ</div><div class="desc">熱々の器で提供、香ばしいおこげがうまい。〆にぴったり。</div><div class="price">¥850</div></div>
+            <div class="menu-item"><div class="meta">冷麺</div><div class="desc">さっぱりしたスープで後味すっきり。暑い日にも人気です。</div><div class="price">¥780</div></div>
           </div>
         </section>
 
-        <!-- ここからメニュー写真 横スクロール -->
-        <section id="photos" class="card" aria-label="メニュー写真">
+        <section id="photos" class="card">
           <h2>メニュー写真</h2>
-          <div style="
-            display:flex;
-            overflow-x:auto;
-            gap:12px;
-            padding:12px 0;
-            scroll-snap-type:x mandatory;
-            -webkit-overflow-scrolling:touch;
-          ">
-            <img src="./gyutan.webp" alt="牛タン" style="flex:0 0 auto;width:150px;height:150px;object-fit:cover;border-radius:8px;scroll-snap-align:start;">
-            <img src="./karubi.webp" alt="カルビ" style="flex:0 0 auto;width:150px;height:150px;object-fit:cover;border-radius:8px;scroll-snap-align:start;">
-            <img src="./bibinnba.webp" alt="石焼きビビンバ" style="flex:0 0 auto;width:150px;height:150px;object-fit:cover;border-radius:8px;scroll-snap-align:start;">
-            <img src="./harami.webp" alt="ハラミ" style="flex:0 0 auto;width:150px;height:150px;object-fit:cover;border-radius:8px;scroll-snap-align:start;">
-            <img src="./reimenn.webp" alt="冷麺" style="flex:0 0 auto;width:150px;height:150px;object-fit:cover;border-radius:8px;scroll-snap-align:start;">
+          <div class="menu-gallery">
+            <img src="./gyutan.webp" alt="牛タン">
+            <img src="./karubi.webp" alt="カルビ">
+            <img src="./bibinnba.webp" alt="石焼きビビンバ">
+            <img src="./harami.webp" alt="ハラミ">
+            <img src="./reimenn.webp" alt="冷麺">
           </div>
-        </section>
-
-        <section id="faq" class="card" aria-labelledby="faq-title">
-          <h2 id="faq-title">よくある質問</h2>
-          <dl class="faq">
-            <dt>予約は必要ですか？</dt>
-            <dd>ご来店の曜日や時間帯によります。土日は混み合いますので予約をおすすめします。</dd>
-
-            <dt>支払い方法は？</dt>
-            <dd>現金のほか、クレジットカード（VISA / Master）をご利用いただけます。</dd>
-
-            <dt>喫煙はできますか？</dt>
-            <dd>店内は全席喫煙可となっております。ご希望があれば分煙の配慮もいたしますのでご相談ください。</dd>
-          </dl>
         </section>
       </main>
 
@@ -182,42 +127,6 @@
           <h3>ご予約・お問合せ</h3>
           <div class="tel">☎︎ 03-1234-5678</div>
           <a class="btn-call" href="tel:0312345678">電話で予約</a>
-          <div class="small">営業時間：11:30〜14:30 / 17:00〜22:00（L.O.21:30）</div>
-          <div class="small">定休日：水曜日</div>
-          <div style="height:8px"></div>
-          <div class="notice small">「お子様連れ」「アレルギー」など事前にお伝えいただければ対応いたします。</div>
-        </div>
-    
- <div class="card" style="margin-top:14px">
-  <h3>地図で場所を確認</h3>
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.123456789!2d139.700000!3d35.689500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c123456789%3A0xabcdef123456789!2z44CSMTAwLTAwMDEg5p2x5Lqs6YO95paw5aSn6KeS77yR5LiB55uu77yR77yR!5e0!3m2!1sja!2sjp!4v1234567890123" 
-    width="100%" 
-    height="250" 
-    style="border:0; border-radius:12px;" 
-    allowfullscreen="" 
-    loading="lazy" 
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-</div>
-   
- <div class="card" style="margin-top:14px">
-          <h3>アクセス</h3>
-          <div class="meta-list">
-            <div>東京都○○区中園町 2-3-4</div>
-            <div>最寄り駅：中園駅 徒歩7分</div>
-            <div>駐車場：近隣コインパーキングをご利用ください</div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:14px">
-          <h3>おすすめの注文順</h3>
-          <ol style="margin:8px 0 0 18px;color:var(--muted)">
-            <li>まずはナムルと生ビールで乾杯</li>
-            <li>牛タンを塩でさっと</li>
-            <li>ハラミ・カルビをタレでじっくり</li>
-            <li>シメに石焼ビビンバか冷麺</li>
-          </ol>
         </div>
       </aside>
     </div>
@@ -227,25 +136,68 @@
     </footer>
   </div>
 
-  <script>
-    (function(){
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting){
-            e.target.style.transition="opacity 900ms ease, transform 900ms ease";
-            e.target.style.opacity=1;
-            e.target.style.transform="translateY(0)";
-            io.unobserve(e.target);
-          }
-        });
-      },{threshold:0.12});
+  <!-- ====== 画像拡大用ライトボックス ====== -->
+  <div id="lightbox" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);justify-content:center;align-items:center;z-index:9999;">
+    <img id="lightbox-img" src="" alt="拡大画像" style="max-width:90%;max-height:85%;border-radius:12px;box-shadow:0 0 20px rgba(255,255,255,0.3);">
+  </div>
 
-      document.querySelectorAll('.card, .hero .content, .photo, .menu-item').forEach(el=>{
-        el.style.opacity=0;
-        el.style.transform="translateY(18px)";
-        io.observe(el);
-      });
-    })();
+  <script>
+    const galleryImgs = Array.from(document.querySelectorAll('.menu-gallery img'));
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    let currentIndex = 0;
+
+    function showImage(index) {
+      currentIndex = index;
+      lightboxImg.src = galleryImgs[currentIndex].src;
+      lightbox.style.display = 'flex';
+    }
+
+    // 画像クリックでライトボックス表示
+    galleryImgs.forEach((img, i) => {
+      img.addEventListener('click', () => showImage(i));
+    });
+
+    // クリックで閉じる
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target === lightboxImg) {
+        lightbox.style.display = 'none';
+      }
+    });
+
+    // キーボード左右で切替
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.style.display === 'flex') {
+        if (e.key === 'ArrowRight') {
+          currentIndex = (currentIndex + 1) % galleryImgs.length;
+          lightboxImg.src = galleryImgs[currentIndex].src;
+        } else if (e.key === 'ArrowLeft') {
+          currentIndex = (currentIndex - 1 + galleryImgs.length) % galleryImgs.length;
+          lightboxImg.src = galleryImgs[currentIndex].src;
+        } else if (e.key === 'Escape') {
+          lightbox.style.display = 'none';
+        }
+      }
+    });
+
+    // スマホ向けタッチスワイプ
+    let startX = 0;
+    lightboxImg.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    });
+
+    lightboxImg.addEventListener('touchend', e => {
+      const endX = e.changedTouches[0].clientX;
+      const diff = endX - startX;
+      if (Math.abs(diff) > 40) { // スワイプ判定
+        if (diff < 0) { // 左スワイプ → 次
+          currentIndex = (currentIndex + 1) % galleryImgs.length;
+        } else { // 右スワイプ → 前
+          currentIndex = (currentIndex - 1 + galleryImgs.length) % galleryImgs.length;
+        }
+        lightboxImg.src = galleryImgs[currentIndex].src;
+      }
+    });
   </script>
 </body>
 </html>
